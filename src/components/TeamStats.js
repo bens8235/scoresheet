@@ -1,12 +1,12 @@
-import "./TeamStats.css";
+import "./teamsheet.css";
 
-export default function TeamStats() {
+export default function TeamStats({ team, teamName }) {
   return (
     <>
       <div className="flex mt-4">
-        <label className="font-bold">Team A:</label>
+        <label className="font-bold">Team {team}:</label>
         <div className="flex flex-col">
-          <span className="ml-2 text-blue-700 font-bold">B.C. MIES</span>
+          <span className="ml-2 text-blue-700 font-bold">{teamName}</span>
           <div className="w-[400px] h-0.5 bg-black"></div>
         </div>
       </div>
