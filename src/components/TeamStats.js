@@ -3,7 +3,7 @@ import "./teamsheet.css";
 export default function TeamStats({ team, teamName }) {
   return (
     <>
-      <div className="flex mt-4">
+      <div className="flex">
         <label className="font-bold">Team {team}:</label>
         <div className="flex flex-col">
           <span className="ml-2 text-blue-700 font-bold">{teamName}</span>

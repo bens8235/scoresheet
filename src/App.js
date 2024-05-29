@@ -1,4 +1,5 @@
 import Players from "./components/Players";
+import RunningScore from "./components/RunningScore";
 import ScoresheetHeader from "./components/ScoresheetHeader";
 import Signatures from "./components/Signatures";
 import TeamStats from "./components/TeamStats";
@@ -93,13 +94,18 @@ export default function App() {
 
   return (
     <>
-      <div className="pl-2">
+      <div className="pl-2 pr-2 ">
         <ScoresheetHeader />
-        <TeamStats team="A" teamName="BC MIES" />
-        <Players playerDetails={playerDetails} />
-        <TeamStats team="B" teamName="CAT BASKET" />
-        <Players playerDetails={playerDetails} />
-        <Signatures />
+        <div className="flex">
+          <div>
+            <TeamStats team="A" teamName="BC MIES" />
+            <Players playerDetails={playerDetails} />
+            <TeamStats team="B" teamName="CAT BASKET" />
+            <Players playerDetails={playerDetails} />
+            <Signatures />
+          </div>
+          <RunningScore />
+        </div>
       </div>
     </>
   );
