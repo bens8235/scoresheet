@@ -7,7 +7,19 @@ import Signatures from "./components/Signatures";
 import TeamStats from "./components/TeamStats";
 
 export default function App() {
-  // Team 1 player Details
+  const gameDetails = {
+    teamA: "BC MIES",
+    teamB: "CATBASKET",
+    competition: "BASCUP 2022",
+    date: "15.06.23",
+    time: "20:30",
+    crewChief: "KOTLEBA, L (SVK)",
+    gameNo: 169,
+    place: "FIBA ARENA, GENEVE",
+    umpire1: "JUNGBRAND, C (FIN)",
+    umpire2: "RIGASO, G (GRE)",
+  };
+
   const playerDetails = [
     {
       license_no: 250,
@@ -206,8 +218,31 @@ export default function App() {
     },
   ];
 
-  //Team 1 Time-Outs & Team Fouls
-  // When I next come back to this need to use this data in my component
+  const coachDetails = {
+    headCoach: {
+      no: "C001",
+      name: "CANUT J",
+      fouls: ["C0", false, false],
+    },
+    firstAssistantCoach: {
+      no: "C80",
+      name: "SERRAT A",
+      fouls: [false, false, false],
+    },
+  };
+
+  const coachDetails2 = {
+    headCoach: {
+      no: "C50",
+      name: "Castro A",
+      fouls: ["C0", false, false],
+    },
+    firstAssistantCoach: {
+      no: "C111",
+      name: "Aurienma J",
+      fouls: [false, false, false],
+    },
+  };
 
   const team1Details = {
     timeOuts: [
@@ -276,24 +311,30 @@ export default function App() {
   return (
     <>
       <div className="pl-2 pr-2 ">
-        <ScoresheetHeader />
+        <ScoresheetHeader gameDetails={gameDetails} />
         <div className="border-2 border-black mt-4 mb-4">
-          <GameDetails />
+          <GameDetails gameDetails={gameDetails} />
           <div className="flex justify-center w-full">
             <div className="w-1/2 border-r-2 border-black flex flex-col items-center">
               <TeamStats
                 team="A"
-                teamName="BC MIES"
+                teamName={gameDetails.teamA}
                 teamDetails={team1Details}
               />
 
-              <Players playerDetails={playerDetails} />
+              <Players
+                playerDetails={playerDetails}
+                coachDetails={coachDetails}
+              />
               <TeamStats
                 team="B"
-                teamName="CAT BASKET"
+                teamName={gameDetails.teamB}
                 teamDetails={team2Details}
               />
-              <Players playerDetails={playerDetails2} />
+              <Players
+                playerDetails={playerDetails2}
+                coachDetails={coachDetails2}
+              />
               <Signatures />
             </div>
             <div className="w-1/2 flex flex-col items-center">

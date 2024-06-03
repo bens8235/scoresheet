@@ -1,7 +1,6 @@
 import "./teamsheet.css";
 
 export default function TeamStats({ team, teamName, teamDetails }) {
-  console.log(teamDetails.HCC[0]);
   return (
     <>
       <div className="flex mt-4">

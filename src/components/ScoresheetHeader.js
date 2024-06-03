@@ -1,4 +1,4 @@
-export default function ScoresheetHeader() {
+export default function ScoresheetHeader({ gameDetails }) {
   return (
     <>
       <div className="flex items-center justify-between  pb-4">
@@ -20,14 +20,18 @@ export default function ScoresheetHeader() {
           <div className="flex">
             <label className="font-bold">Team A:</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">B.C. MIES</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {gameDetails.teamA}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>
           <div className="flex">
             <label className="font-bold ">Team B:</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">CATBASKET</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {gameDetails.teamB}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>

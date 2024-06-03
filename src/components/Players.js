@@ -1,6 +1,7 @@
 import "./teamsheet.css";
 
-export default function Players({ playerDetails }) {
+export default function Players({ playerDetails, coachDetails }) {
+  console.log(coachDetails.headCoach);
   return (
     <>
       <div className="flex flex-col">
@@ -175,21 +176,59 @@ export default function Players({ playerDetails }) {
           <div className="flex">
             <div className=" flex border-2 border-black">
               <h2 className="border-r-2 border-black w-[150px]">Head Coach</h2>
-              <h2 className="border-r-2 border-black w-[50px]">C001</h2>
-              <h2 className="border-r-2 border-black w-[150px]">CANUT J</h2>
+              <h2 className="border-r-2 border-black w-[50px]">
+                {coachDetails.headCoach.no}
+              </h2>
+              <h2 className="border-r-2 border-black w-[150px]">
+                {coachDetails.headCoach.name}
+              </h2>
 
-              <span className="border-r-2 border-black w-6 h-6">C0</span>
+              {coachDetails.headCoach.fouls[0] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.headCoach.fouls[0]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
 
-              <div className="relative">
-                <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
-                <span className="horizontal-line top-line"></span>
-                <span className="horizontal-line bottom-line"></span>
-              </div>
-              <div className="relative">
-                <span className=" w-6 h-6 flex items-center justify-center"></span>
-                <span className="horizontal-line top-line"></span>
-                <span className="horizontal-line bottom-line"></span>
-              </div>
+              {coachDetails.headCoach.fouls[1] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.headCoach.fouls[1]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
+              {coachDetails.headCoach.fouls[2] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.headCoach.fouls[2]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
           <div className="flex">
@@ -197,25 +236,59 @@ export default function Players({ playerDetails }) {
               <h2 className="border-r-2 border-black w-[150px]">
                 First Assistant Coach
               </h2>
-              <h2 className="border-r-2 border-black w-[50px]">C80</h2>
-              <h2 className="border-r-2 border-black w-[150px]">SERRAT A</h2>
+              <h2 className="border-r-2 border-black w-[50px]">
+                {coachDetails.firstAssistantCoach.no}
+              </h2>
+              <h2 className="border-r-2 border-black w-[150px]">
+                {coachDetails.firstAssistantCoach.name}
+              </h2>
 
-              <div className="relative">
-                <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
-                <span className="horizontal-line top-line"></span>
-                <span className="horizontal-line bottom-line"></span>
-              </div>
+              {coachDetails.firstAssistantCoach.fouls[0] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.firstAssistantCoach.fouls[0]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
 
-              <div className="relative">
-                <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
-                <span className="horizontal-line top-line"></span>
-                <span className="horizontal-line bottom-line"></span>
-              </div>
-              <div className="relative">
-                <span className=" w-6 h-6 flex items-center justify-center"></span>
-                <span className="horizontal-line top-line"></span>
-                <span className="horizontal-line bottom-line"></span>
-              </div>
+              {coachDetails.firstAssistantCoach.fouls[1] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.firstAssistantCoach.fouls[1]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
+              {coachDetails.firstAssistantCoach.fouls[2] ? (
+                <>
+                  <span className="border-r-2 border-black w-6 h-6">
+                    {coachDetails.firstAssistantCoach.fouls[2]}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <div className="relative">
+                    <span className=" w-6 h-6 flex items-center justify-center border-r-2 border-black"></span>
+                    <span className="horizontal-line top-line"></span>
+                    <span className="horizontal-line bottom-line"></span>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
