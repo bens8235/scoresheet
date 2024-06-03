@@ -1,4 +1,4 @@
-export default function Signatures() {
+export default function Signatures({ signatures }) {
   return (
     <>
       <div>
@@ -6,28 +6,36 @@ export default function Signatures() {
           <div className="flex">
             <label className="font-bold w-[160px]">Scorer</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">ISOLA D</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {signatures.scorer}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>
           <div className="flex">
             <label className="font-bold w-[160px]">Assistant Scorer</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">ONNA M</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {signatures.assistantScorer}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>
           <div className="flex">
             <label className="font-bold w-[160px]">Timer</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">Fernandez P</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {signatures.timer}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>
           <div className="flex">
             <label className="font-bold w-[160px] ">Shot Clock Operator</label>
             <div className="flex flex-col">
-              <span className="ml-2 text-[#0000FF] font-bold">Patton M</span>
+              <span className="ml-2 text-[#0000FF] font-bold">
+                {signatures.shotClockOperator}
+              </span>
               <div className="w-[400px] h-0.5 bg-black"></div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import GameDetails from "./components/GameDetails";
 import Players from "./components/Players";
+
 import RunningScore from "./components/RunningScore";
+import ColumnsTable from "./components/RunningScore";
 import Scores from "./components/Scores";
 import ScoresheetHeader from "./components/ScoresheetHeader";
 import Signatures from "./components/Signatures";
@@ -18,6 +20,70 @@ export default function App() {
     place: "FIBA ARENA, GENEVE",
     umpire1: "JUNGBRAND, C (FIN)",
     umpire2: "RIGASO, G (GRE)",
+  };
+
+  const team1Details = {
+    timeOuts: [
+      {
+        H1: [
+          [2, "Q2"],
+          [8, "Q4"],
+        ],
+      },
+      {
+        H2: [
+          [9, "Q3"],
+          [10, "Q2"],
+          [10, "Q4"],
+        ],
+      },
+      {
+        OT: [
+          [false, false],
+          [false, false],
+          [false, false],
+        ],
+      },
+    ],
+    teamFouls: [
+      { Q1: [true, true, true, false] },
+      { Q2: [true, true, true, false] },
+      { Q3: [true, true, true, true] },
+      { Q4: [true, true, true, true] },
+    ],
+    HCC: ["Q3", 5],
+  };
+
+  const team2Details = {
+    timeOuts: [
+      {
+        H1: [
+          [5, "Q2"],
+          [false, "Q2"],
+        ],
+      },
+      {
+        H2: [
+          [5, "Q3"],
+          [6, "Q2"],
+          [10, "Q4"],
+        ],
+      },
+      {
+        OT: [
+          [false, false],
+          [false, false],
+          [false, false],
+        ],
+      },
+    ],
+    teamFouls: [
+      { Q1: [true, true, true, false] },
+      { Q2: [true, false, false, false] },
+      { Q3: [true, true, true, true] },
+      { Q4: [true, true, true, true] },
+    ],
+    HCC: ["Q2", 8],
   };
 
   const playerDetails = [
@@ -244,68 +310,24 @@ export default function App() {
     },
   };
 
-  const team1Details = {
-    timeOuts: [
-      {
-        H1: [
-          [2, "Q2"],
-          [8, "Q4"],
-        ],
-      },
-      {
-        H2: [
-          [9, "Q3"],
-          [10, "Q2"],
-          [10, "Q4"],
-        ],
-      },
-      {
-        OT: [
-          [false, false],
-          [false, false],
-          [false, false],
-        ],
-      },
-    ],
-    teamFouls: [
-      { Q1: [true, true, true, false] },
-      { Q2: [true, true, true, false] },
-      { Q3: [true, true, true, true] },
-      { Q4: [true, true, true, true] },
-    ],
-    HCC: ["Q3", 5],
+  const signatures = {
+    scorer: "ISOLA, D",
+    assistantScorer: "ONNA, M",
+    timer: "FERNANDEZ, P",
+    shotClockOperator: "PATTON, M",
   };
 
-  const team2Details = {
-    timeOuts: [
-      {
-        H1: [
-          [5, "Q2"],
-          [false, "Q2"],
-        ],
-      },
-      {
-        H2: [
-          [5, "Q3"],
-          [6, "Q2"],
-          [10, "Q4"],
-        ],
-      },
-      {
-        OT: [
-          [false, false],
-          [false, false],
-          [false, false],
-        ],
-      },
-    ],
-    teamFouls: [
-      { Q1: [true, true, true, false] },
-      { Q2: [true, false, false, false] },
-      { Q3: [true, true, true, true] },
-      { Q4: [true, true, true, true] },
-    ],
-    HCC: ["Q2", 8],
+  const scores = {
+    Q1: {
+      teamAScore: [
+        { playerNumber: 7, points: 2, totalScore: 2 },
+        { playerNumber: 0, points: 3, totalScore: 5 },
+      ],
+      teamBScore: [
+        { playerNumber: 6, points: 2, totalScore: 2 },
+        { playerNumber: 6, points: 1, totalScore: 3 },
+      ],
+    },
   };
 
   return (
@@ -335,10 +357,11 @@ export default function App() {
                 playerDetails={playerDetails2}
                 coachDetails={coachDetails2}
               />
-              <Signatures />
+              <Signatures signatures={signatures} />
             </div>
             <div className="w-1/2 flex flex-col items-center">
-              <RunningScore />
+              <RunningScore scores={scores} />
+
               <Scores />
             </div>
           </div>

@@ -2,68 +2,47 @@ import React from "react";
 import "./RunningScore.css";
 
 export default function RunningScore() {
-  const firstRowScores = [1, 41, 81, 121];
-  const rows = [];
+  const range = (start, end) => {
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+  };
 
-  while (firstRowScores[3] <= 160) {
-    rows.push(
-      <React.Fragment key={firstRowScores[0]}>
-        <div className="cell"></div>
-        <div className="cell">{firstRowScores[0]}</div>
-        <div className="cell">{firstRowScores[0]}</div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell">{firstRowScores[1]}</div>
-        <div className="cell">{firstRowScores[1]}</div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell">{firstRowScores[2]}</div>
-        <div className="cell">{firstRowScores[2]}</div>
-        <div className="cell"></div>
-        <div className="cell"></div>
-        <div className="cell">{firstRowScores[3]}</div>
-        <div className="cell">{firstRowScores[3]}</div>
-        <div className="cell"></div>
-      </React.Fragment>
-    );
-    firstRowScores[0] += 1;
-    firstRowScores[1] += 1;
-    firstRowScores[2] += 1;
-    firstRowScores[3] += 1;
-  }
+  const array1to40 = range(1, 40);
+  const array41to80 = range(41, 80);
+  const array81to120 = range(81, 120);
+  const array121to160 = range(121, 160);
+
+  const arrays = [array1to40, array41to80, array81to120, array121to160];
 
   return (
     <>
-      <div className="flex flex-col">
-        <h1 className="text-center font-bold mt-4 mb-2">Running Score</h1>
-        <div className="grid-container">
-          {/* Header Row */}
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            A
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            B
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            A
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            B
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            A
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            B
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            A
-          </div>
-          <div className="header cell" style={{ gridColumn: "span 2" }}>
-            B
-          </div>
-          {rows}
-        </div>
+      <h1 className="text-center font-bold mt-4 mb-2">Running Score</h1>
+      <div className="flex">
+        {arrays.map((num, index) => (
+          <React.Fragment key={index}>
+            <div className="grid-container">
+              <div className="header">A</div>
+              {num.map((_, idx) => (
+                <div className="cell" key={`A-empty-${index}-${idx}`}></div>
+              ))}
+              {num.map((n, idx) => (
+                <div className="cell" key={`A-${index}-${idx}`}>
+                  {n}
+                </div>
+              ))}
+            </div>
+            <div className="grid-container">
+              <div className="header">B</div>
+              {num.map((n, idx) => (
+                <div className="cell" key={`B-${index}-${idx}`}>
+                  {n}
+                </div>
+              ))}
+              {num.map((_, idx) => (
+                <div className="cell" key={`B-empty-${index}-${idx}`}></div>
+              ))}
+            </div>
+          </React.Fragment>
+        ))}
       </div>
     </>
   );

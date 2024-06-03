@@ -2,11 +2,7 @@ export default function ScoresheetHeader({ gameDetails }) {
   return (
     <>
       <div className="flex items-center justify-between  pb-4">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/FIBA_logo.svg/1200px-FIBA_logo.svg.png"
-          alt="FIBA Logo"
-          className="w-20"
-        />
+        <img src="/basketballLogo.png" alt="Basketball Logo" className="w-20" />
         <div className="text-center flex-grow">
           <h2 className="text-xl font-bold">
             FEDERATION INTERNATIONAL OF BASKETBALL

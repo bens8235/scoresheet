@@ -1,8 +1,9 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(16, 30px); /* 16 columns, each 30px wide */
-  grid-template-rows: 30px 30px; /* Adjust the row heights */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto repeat(40, 1fr); /* Adjust the row heights */
   gap: 0; /* No space between cells */
+  grid-auto-flow: column;
 }
 
 .cell,
@@ -16,7 +17,13 @@
   padding: 0; /* No padding */
 }
 
+.cell {
+  width: 30px;
+  height: 30px;
+}
+
 .header {
   font-weight: bold;
-  background-color: #f0f0f0; /* Optional: different background for header */
+  background-color: #f0f0f0;
+  grid-column: span 2; /* Optional: different background for header */
 }
