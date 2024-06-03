@@ -36,33 +36,136 @@ export default function Players({ playerDetails }) {
           return (
             <div key={index} className="flex">
               <div className="flex border-2 border-black">
-                <h2 className="border-r-2 border-black text-center h-full  w-[60px]">
-                  {player.license_no}
+                <h2 className="border-r-2 border-black text-center h-full relative  w-[60px]">
+                  {player.license_no !== false ? (
+                    player.license_no
+                  ) : (
+                    <>
+                      <span className="horizontal-line top-line"></span>
+                      <span className="horizontal-line bottom-line"></span>
+                    </>
+                  )}
                 </h2>
-                <h2 className="border-r-2 border-black text-center  h-full w-[200px]">
-                  {player.player}
+                <h2 className="border-r-2 border-black text-center relative h-full w-[200px] min-h-[24px]">
+                  {player.player ? (
+                    player.player
+                  ) : (
+                    <>
+                      <span className="horizontal-line top-line"></span>
+                      <span className="horizontal-line bottom-line"></span>
+                    </>
+                  )}
                 </h2>
-                <h2 className="border-r-2 border-black text-center  h-full w-[40px]">
-                  {player.no}
+                <h2 className="border-r-2 border-black text-center relative h-full w-[40px]">
+                  {player.no !== false ? (
+                    player.no
+                  ) : (
+                    <>
+                      <span className="horizontal-line top-line"></span>
+                      <span className="horizontal-line bottom-line"></span>
+                    </>
+                  )}
                 </h2>
-                <h2 className="border-r-2 border-black  flex  h-full w-[50px] relative">
-                  {player.playerIn && <div className="thin-cross blue"></div>}
-                </h2>
+                <div className="flex justify-center border-r-2 border-black w-[50px] relative">
+                  {player.playerStart ? (
+                    <div className="circle">
+                      <div className="thin-cross blue"></div>
+                    </div>
+                  ) : player.playerIn[0] &&
+                    (player.playerIn[1] === "Q1" ||
+                      player.playerIn[1] === "Q3") ? (
+                    <div className="thin-cross"></div>
+                  ) : player.playerIn[0] ? (
+                    <div className="thin-cross blue"></div>
+                  ) : (
+                    <>
+                      <span className="horizontal-line top-line"></span>
+                      <span className="horizontal-line bottom-line"></span>
+                    </>
+                  )}
+                </div>
 
                 <div className="flex w-[178.31px]">
-                  <h3 className="border-r-2 border-black text-center flex-1">
-                    {player.fouls[0]}
+                  <h3
+                    className={`border-r-2 border-black text-center flex-1 relative font-bold ${
+                      player.fouls[0][1] === "Q1" || player.fouls[0][1] === "Q3"
+                        ? "text-[#FF0000]"
+                        : "text-[#0000FF]"
+                    }`}
+                  >
+                    {player.fouls[0] && player.fouls[0][0] ? (
+                      player.fouls[0][0]
+                    ) : (
+                      <>
+                        <span className="horizontal-line top-line w-[36px]"></span>
+                        <span className="horizontal-line bottom-line w-[36px]"></span>
+                      </>
+                    )}
                   </h3>
-                  <h3 className="border-r-2 border-black text-center flex-1">
-                    {player.fouls[1]}
+                  <h3
+                    className={`border-r-2 border-black text-center flex-1 relative font-bold ${
+                      player.fouls[1][1] === "Q1" || player.fouls[1][1] === "Q3"
+                        ? "text-[#FF0000]"
+                        : "text-[#0000FF]"
+                    }`}
+                  >
+                    {player.fouls[1] && player.fouls[1][0] ? (
+                      player.fouls[1][0]
+                    ) : (
+                      <>
+                        <span className="horizontal-line top-line w-[36px]"></span>
+                        <span className="horizontal-line bottom-line w-[36px]"></span>
+                      </>
+                    )}
                   </h3>
-                  <h3 className="border-r-2 border-black text-center flex-1">
-                    {player.fouls[2]}
+                  <h3
+                    className={`border-r-2 border-black text-center flex-1 relative font-bold ${
+                      player.fouls[2][1] === "Q1" || player.fouls[2][1] === "Q3"
+                        ? "text-[#FF0000]"
+                        : "text-[#0000FF]"
+                    }`}
+                  >
+                    {player.fouls[2] && player.fouls[2][0] ? (
+                      player.fouls[2][0]
+                    ) : (
+                      <>
+                        <span className="horizontal-line top-line w-[36px] "></span>
+                        <span className="horizontal-line bottom-line w-[36px]"></span>
+                      </>
+                    )}
                   </h3>
-                  <h3 className="border-r-2 border-black text-center flex-1">
-                    {player.fouls[3]}
+                  <h3
+                    className={`border-r-2 border-black text-center flex-1 relative font-bold ${
+                      player.fouls[3][1] === "Q1" || player.fouls[3][1] === "Q3"
+                        ? "text-[#FF0000]"
+                        : "text-[#0000FF]"
+                    }`}
+                  >
+                    {player.fouls[3] && player.fouls[3][0] ? (
+                      player.fouls[3][0]
+                    ) : (
+                      <>
+                        <span className="horizontal-line top-line w-[36px]"></span>
+                        <span className="horizontal-line bottom-line w-[36px]"></span>
+                      </>
+                    )}
                   </h3>
-                  <h3 className="flex-1 text-center">{player.fouls[4]}</h3>
+                  <h3
+                    className={` text-center flex-1 relative font-bold ${
+                      player.fouls[4][1] === "Q1" || player.fouls[4][1] === "Q3"
+                        ? "text-[#FF0000]"
+                        : "text-[#0000FF]"
+                    }`}
+                  >
+                    {player.fouls[4] && player.fouls[4][0] ? (
+                      player.fouls[4][0]
+                    ) : (
+                      <>
+                        <span className="horizontal-line top-line w-[36px]"></span>
+                        <span className="horizontal-line bottom-line w-[36px]"></span>
+                      </>
+                    )}
+                  </h3>
                 </div>
               </div>
             </div>

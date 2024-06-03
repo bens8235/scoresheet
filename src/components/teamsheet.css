@@ -51,3 +51,14 @@
 .bottom-line {
   bottom: 35%; /* Adjust the position */
 }
+
+.circle {
+  position: relative;
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border: 2px solid red; /* Red circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

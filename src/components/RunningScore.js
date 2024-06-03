@@ -35,7 +35,7 @@ export default function RunningScore() {
   return (
     <>
       <div className="flex flex-col">
-        <h1 className="text-center">Running Score</h1>
+        <h1 className="text-center font-bold mt-4 mb-2">Running Score</h1>
         <div className="grid-container">
           {/* Header Row */}
           <div className="header cell" style={{ gridColumn: "span 2" }}>
