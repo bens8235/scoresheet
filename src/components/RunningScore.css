@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(16, 1fr);
   grid-template-rows: auto repeat(40, 1fr); /* Adjust the row heights */
   gap: 0; /* No space between cells */
   grid-auto-flow: column;
@@ -26,4 +26,26 @@
   font-weight: bold;
   background-color: #f0f0f0;
   grid-column: span 2; /* Optional: different background for header */
+}
+
+.outer-circle-red {
+  position: relative;
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border: 2px solid red; /* Red circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outer-circle-blue {
+  position: relative;
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  border: 2px solid blue; /* Red circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

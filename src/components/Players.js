@@ -1,7 +1,6 @@
 import "./teamsheet.css";
 
 export default function Players({ playerDetails, coachDetails }) {
-  console.log(coachDetails.headCoach);
   return (
     <>
       <div className="flex flex-col">
