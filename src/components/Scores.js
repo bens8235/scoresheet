@@ -80,7 +80,7 @@ export default function Scores({ finalStats }) {
             <label className="font-bold">A</label>
             {finalStats.overtime.teamA ? (
               <span className="ml-2 border-b-2 border-black text-[#0000FF] font-bold">
-                8
+                {finalStats.overtime.teamA}
               </span>
             ) : (
               <div className="ml-2 flex flex-col items-center">
@@ -93,7 +93,7 @@ export default function Scores({ finalStats }) {
             <label className="font-bold">B</label>
             {finalStats.overtime.teamB ? (
               <span className="ml-2 border-b-2 border-black text-[#0000FF] font-bold">
-                8
+                {finalStats.overtime.teamB}
               </span>
             ) : (
               <div className="ml-2 flex flex-col items-center">
