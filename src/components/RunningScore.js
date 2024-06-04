@@ -78,6 +78,13 @@ export default function RunningScore({ scores }) {
               {num[0].map((n, idx) => {
                 const nextEventQuarter =
                   idx < num[0].length - 1 ? num[0][idx + 1].quarter : null;
+
+                const endGame = n.quarter === "ENDGAME" ? "endline" : "";
+                const height =
+                  n.quarter === "ENDGAME" ? (num[0].length - idx) * 30 : null;
+
+                const heightStyle = height ? { height: `${height}px` } : {};
+
                 let outerCircle = "";
                 let borderColorClass = "";
                 if (
@@ -138,6 +145,7 @@ export default function RunningScore({ scores }) {
                   >
                     <div className={outerCircle}>{n.key}</div>
                     <div className={`${diagonal} ${circleScore}`}></div>
+                    <div className={endGame} style={heightStyle}></div>
                   </div>
                 );
               })}
@@ -147,6 +155,13 @@ export default function RunningScore({ scores }) {
               {num[1].map((n, idx) => {
                 const nextEventQuarter =
                   idx < num[1].length - 1 ? num[1][idx + 1].quarter : null;
+
+                const endGame2 = n.quarter === "ENDGAME" ? "endline" : "";
+
+                const height2 =
+                  n.quarter === "ENDGAME" ? (num[0].length - idx) * 30 : null;
+
+                const heightStyle2 = height2 ? { height: `${height2}px` } : {};
 
                 let borderColorClass2 = "";
                 let outerCircle2 = "";
@@ -206,6 +221,7 @@ export default function RunningScore({ scores }) {
                   >
                     <div className={outerCircle2}>{n.key}</div>
                     <div className={`${diagonal2} ${circleScore2}`}></div>
+                    <div className={endGame2} style={heightStyle2}></div>
                   </div>
                 );
               })}

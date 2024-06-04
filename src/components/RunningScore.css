@@ -95,3 +95,13 @@
   border-radius: 50%;
   background-color: blue;
 }
+
+.endline {
+  position: absolute;
+  transform: rotate(-182deg);
+  background-color: blue;
+  width: 3px;
+  z-index: 150;
+  top: 0;
+  right: 0;
+}

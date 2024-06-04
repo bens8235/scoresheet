@@ -667,7 +667,7 @@ export default function App() {
         playerNumber: false,
         points: 0,
         totalScore: 92,
-        quarter: "END",
+        quarter: "ENDGAME",
       },
       {
         key: 94,
@@ -1601,7 +1601,7 @@ export default function App() {
         playerNumber: false,
         points: 0,
         totalScore: 90,
-        quarter: "END",
+        quarter: "ENDGAME",
       },
       {
         key: 92,
