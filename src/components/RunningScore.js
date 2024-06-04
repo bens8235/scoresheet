@@ -75,19 +75,140 @@ export default function RunningScore({ scores }) {
                   </div>
                 );
               })}
-              {num[0].map((n, idx) => (
-                <div className="cell font-bold" key={`A-${index}-${idx}`}>
-                  {n.key}
-                </div>
-              ))}
+              {num[0].map((n, idx) => {
+                const nextEventQuarter =
+                  idx < num[0].length - 1 ? num[0][idx + 1].quarter : null;
+                let outerCircle = "";
+                let borderColorClass = "";
+                if (
+                  idx < num[1].length - 1 &&
+                  (n.quarter === "Q1" || n.quarter === "Q3") &&
+                  n.quarter !== nextEventQuarter
+                ) {
+                  borderColorClass = "!border-b-4 !border-b-red-600";
+                  outerCircle = "outer-circle-red";
+                } else if (
+                  idx < num[1].length - 1 &&
+                  (n.quarter === "Q2" || n.quarter === "Q4") &&
+                  n.quarter !== nextEventQuarter
+                ) {
+                  borderColorClass = "!border-b-4 !border-b-blue-600";
+                  outerCircle = "outer-circle-blue";
+                } else {
+                  borderColorClass = "";
+                  outerCircle = "";
+                }
+
+                let diagonal = "";
+
+                if (
+                  (n.points === 3 || n.points === 2) &&
+                  (n.quarter === "Q1" || n.quarter === "Q3")
+                ) {
+                  diagonal = "diagonal-line-red";
+                } else if (
+                  (n.points === 3 || n.points === 2) &&
+                  (n.quarter === "Q2" || n.quarter === "Q4")
+                ) {
+                  diagonal = "diagonal-line-blue";
+                } else {
+                  diagonal = "";
+                }
+
+                let circleScore = "";
+
+                if (
+                  n.points === 1 &&
+                  (n.quarter === "Q1" || n.quarter === "Q3")
+                ) {
+                  circleScore = "circle-point-red";
+                } else if (
+                  n.points === 1 &&
+                  (n.quarter === "Q2" || n.quarter === "Q4")
+                ) {
+                  circleScore = "circle-point-blue";
+                } else {
+                  circleScore = "";
+                }
+
+                return (
+                  <div
+                    className={`cell font-bold relative ${borderColorClass}`}
+                    key={`A-${index}-${idx}`}
+                  >
+                    <div className={outerCircle}>{n.key}</div>
+                    <div className={`${diagonal} ${circleScore}`}></div>
+                  </div>
+                );
+              })}
             </div>
             <div className="grid-container  w-[60px]">
               <div className="header">B</div>
-              {num[1].map((n, idx) => (
-                <div className="cell font-bold" key={`B-${index}-${idx}`}>
-                  {n.key}
-                </div>
-              ))}
+              {num[1].map((n, idx) => {
+                const nextEventQuarter =
+                  idx < num[1].length - 1 ? num[1][idx + 1].quarter : null;
+
+                let borderColorClass2 = "";
+                let outerCircle2 = "";
+                if (
+                  idx < num[1].length - 1 &&
+                  (n.quarter === "Q1" || n.quarter === "Q3") &&
+                  n.quarter !== nextEventQuarter
+                ) {
+                  borderColorClass2 = "!border-b-4 !border-b-red-600";
+                  outerCircle2 = "outer-circle-red";
+                } else if (
+                  idx < num[1].length - 1 &&
+                  (n.quarter === "Q2" || n.quarter === "Q4") &&
+                  n.quarter !== nextEventQuarter
+                ) {
+                  borderColorClass2 = "!border-b-4 !border-b-blue-600";
+                  outerCircle2 = "outer-circle-blue";
+                } else {
+                  borderColorClass2 = "";
+                  outerCircle2 = "";
+                }
+                let diagonal2 = "";
+
+                if (
+                  (n.points === 3 || n.points === 2) &&
+                  (n.quarter === "Q1" || n.quarter === "Q3")
+                ) {
+                  diagonal2 = "diagonal-line-red";
+                } else if (
+                  (n.points === 3 || n.points === 2) &&
+                  (n.quarter === "Q2" || n.quarter === "Q4")
+                ) {
+                  diagonal2 = "diagonal-line-blue";
+                } else {
+                  diagonal2 = "";
+                }
+
+                let circleScore2 = "";
+
+                if (
+                  n.points === 1 &&
+                  (n.quarter === "Q1" || n.quarter === "Q3")
+                ) {
+                  circleScore2 = "circle-point-red";
+                } else if (
+                  n.points === 1 &&
+                  (n.quarter === "Q2" || n.quarter === "Q4")
+                ) {
+                  circleScore2 = "circle-point-blue";
+                } else {
+                  circleScore2 = "";
+                }
+                return (
+                  <div
+                    className={`cell font-bold relative ${borderColorClass2}`}
+                    key={`B-${index}-${idx}`}
+                  >
+                    <div className={outerCircle2}>{n.key}</div>
+                    <div className={`${diagonal2} ${circleScore2}`}></div>
+                  </div>
+                );
+              })}
 
               {num[1].map((event2, idx) => {
                 const nextEventQuarter =
