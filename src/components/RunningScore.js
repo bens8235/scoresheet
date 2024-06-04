@@ -20,7 +20,7 @@ export default function RunningScore({ scores }) {
 
   return (
     <>
-      <h1 className="text-center font-bold mt-4 mb-2">Running Score</h1>
+      <h1 className="text-center font-bold mt-5 mb-8">Running Score</h1>
       <div className="flex gap-0">
         {arrayofScores.map((num, index) => (
           <React.Fragment key={index}>

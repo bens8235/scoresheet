@@ -4,10 +4,6 @@ export default function ScoresheetHeader({ gameDetails }) {
       <div className="flex items-center justify-between  pb-4">
         <img src="/basketballLogo.png" alt="Basketball Logo" className="w-20" />
         <div className="text-center flex-grow">
-          <h2 className="text-xl font-bold">
-            FEDERATION INTERNATIONAL OF BASKETBALL
-          </h2>
-          <h3 className="text-lg">INTERNATIONAL BASKETBALL FEDERATION</h3>
           <h1 className="text-2xl font-extrabold">SCORESHEET</h1>
         </div>
       </div>

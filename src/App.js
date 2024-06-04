@@ -2089,6 +2089,17 @@ export default function App() {
     ],
   };
 
+  const finalStats = {
+    quarter1: { teamA: 25, teamB: 17 },
+    quarter2: { teamA: 16, teamB: 27 },
+    quarter3: { teamA: 24, teamB: 30 },
+    quarter4: { teamA: 27, teamB: 16 },
+    overtime: { teamA: false, teamB: false },
+    finalScore: { teamA: 92, teamB: 90 },
+    winningTeam: "BC MIES",
+    gameEndTime: "22:05",
+  };
+
   return (
     <>
       <div className="pl-2 pr-2 ">
@@ -2121,7 +2132,7 @@ export default function App() {
             <div className="w-1/2 flex flex-col items-center">
               <RunningScore scores={scores} />
 
-              <Scores />
+              <Scores finalStats={finalStats} />
             </div>
           </div>
         </div>
